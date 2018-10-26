@@ -1,10 +1,10 @@
 package com.example.steph.multicalculator
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.tipCalculator -> {
-                Toast.makeText(this, "You selected ${item.title}", Toast.LENGTH_SHORT).show()
-                item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+                val i = Intent(this, TipCalculatorActivity::class.java)
+                startActivity(i)
                 true
             }
             else -> {
