@@ -5,4 +5,6 @@
     <string name="tip_text_view">Tip:</string>
     <string name="total_text_view">Total:</string>
     <string name="enter_price">Enter the price.</string>
+    <string name="dollar_sign">$</string>
+    <string name="percent_sign">%</string>
 </resources>
