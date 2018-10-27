@@ -50,7 +50,7 @@ class TipCalculatorActivity : AppCompatActivity() {
         // store the price
         val price = java.lang.Double.parseDouble(priceEditText.text.toString())
         // calculate and store the tip
-        val tip: Double = price * (progressValue/100)
+        val tip: Double = price * (progressValue.toDouble()/100)
         // calculate and store the total
         val total: Double = price + tip
 
