@@ -36,7 +36,12 @@ class TipCalculatorActivity : AppCompatActivity() {
 
         seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                // store the progress value
                 progressValue = progress
+                // print the tip
+                printTip()
+                // calculate after the seek bar stops tracking
+                calculateTip()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -44,17 +49,19 @@ class TipCalculatorActivity : AppCompatActivity() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                // build a string of the tip to print to the application
-                val tip = StringBuilder()
-                tip.append("%")
-                tip.append(progressValue.toString())
-                // set the text of the textview
-                tipTextView2.text = tip
-
                 // calculate after the seek bar stops tracking
-                calculateTip()
+                //calculateTip()
             }
         })
+    }
+
+    fun printTip() {
+        // build a string of the tip to print to the application
+        val tip = StringBuilder()
+        tip.append("%")
+        tip.append(progressValue.toString())
+        // set the text of the textview
+        tipTextView2.text = tip
     }
 
     fun calculateTip() {
