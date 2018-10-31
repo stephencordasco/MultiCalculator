@@ -40,6 +40,8 @@ class TipCalculatorActivity : AppCompatActivity() {
                 progressValue = progress
                 // print the tip
                 printTip()
+                // print the tip cost
+                printTipCost()
                 // calculate after the seek bar stops tracking
                 calculateTip()
             }
@@ -64,13 +66,30 @@ class TipCalculatorActivity : AppCompatActivity() {
         tipTextView2.text = tip
     }
 
+    fun printTipCost() {
+        // check if the edittext field is empty
+        checkEditText()
+
+        // used to format the cost
+        val precision = DecimalFormat("0.00")
+
+        // calculate the tip cost
+        val price = java.lang.Double.parseDouble(priceEditText.text.toString())
+        val tipCost: Double = price * (progressValue.toDouble()/100)
+
+        // build a string of the tip cost to print to the application
+        val tip = StringBuilder()
+        tip.append("$")
+        tip.append(precision.format(tipCost).toString())
+        // set the text of the textview
+        tipCostTextView2.text = tip
+    }
+
     fun calculateTip() {
         // check if the edittext field is empty
-        if (priceEditText.text.toString() == "") {
-            priceEditText.setText("0")
-        }
+        checkEditText()
 
-        // used to format the decimal
+        // used to format the cost
         val precision = DecimalFormat("0.00")
 
         // store the price
@@ -86,5 +105,11 @@ class TipCalculatorActivity : AppCompatActivity() {
         totalValue.append(precision.format(total).toString())
         // set the text of the textview
         totalTextView2.text = totalValue
+    }
+
+    private fun checkEditText() {
+        if (priceEditText.text.toString() == "") {
+            priceEditText.setText("0")
+        }
     }
 }
