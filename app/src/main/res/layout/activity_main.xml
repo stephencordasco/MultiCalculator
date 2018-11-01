@@ -5,15 +5,76 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity" android:background="@color/colorAccent">
+
 
     <TextView
+            android:id="@+id/costTextView"
+            android:text="@string/before_tax"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/beforeTaxText"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"/>
+    <TextView
+            android:id="@+id/taxView"
+            android:text="@string/taxView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp" app:layout_constraintBaseline_toBaselineOf="@+id/resultTax"/>
+    <TextView
+            android:id="@+id/withtaxView"
+            android:text="@string/total_text_view"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp" app:layout_constraintBaseline_toBaselineOf="@+id/result"/>
+    <TextView
+            android:id="@+id/resultTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="@string/percent_sign"
+            android:textSize="36sp"
+            app:layout_constraintStart_toEndOf="@+id/taxView" android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@+id/beforeTaxText"/>
+    <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dollar_sign"
+            android:textSize="36sp"
+            app:layout_constraintStart_toEndOf="@+id/withtaxView"
+            android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/resultTax"/>
+    <EditText
+            android:id="@+id/beforeTaxText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:hint="@string/enter_price"
+            android:textSize="24sp" app:layout_constraintStart_toEndOf="@+id/costTextView"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp" android:layout_marginStart="16dp"
+            android:layout_marginTop="120dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <Button
+            android:id="@+id/calculateButton"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:layout_width="103dp"
+            android:layout_height="45dp"
+            android:text="@string/costWithTaxButton"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:textSize="36sp"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/result"
+            app:layout_constraintVertical_bias="0.273" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"/>
 
 </android.support.constraint.ConstraintLayout>
