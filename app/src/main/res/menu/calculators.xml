@@ -18,7 +18,7 @@
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/calculator4"
+        android:id="@+id/taxCalculator"
         android:title="@string/calculator4"
         app:showAsAction="ifRoom|withText" />
 

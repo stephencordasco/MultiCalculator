@@ -1,9 +1,12 @@
 package com.example.steph.multicalculator
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_tip_calculator.*
 import java.lang.StringBuilder
@@ -17,6 +20,7 @@ class TipCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tip_calculator)
 
+        // TextChangedListener for the edittext
         priceEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
@@ -27,13 +31,17 @@ class TipCalculatorActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
+                // declare StringBuilder object
                 val total = StringBuilder()
+                // build the string for the total
                 total.append("$")
                 total.append(priceEditText.text.toString())
+                // set the totalTextView2 text to total
                 totalTextView2.text = total
             }
         })
 
+        // SeekBarChangeListener for the seek bar
         seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 // store the progress value
@@ -42,7 +50,7 @@ class TipCalculatorActivity : AppCompatActivity() {
                 printTip()
                 // print the tip cost
                 printTipCost()
-                // calculate after the seek bar stops tracking
+                // calculate the tip after the seek bar stops tracking
                 calculateTip()
             }
 
@@ -51,12 +59,12 @@ class TipCalculatorActivity : AppCompatActivity() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                // calculate after the seek bar stops tracking
-                //calculateTip()
+
             }
         })
     }
 
+    // helper method prints the tip as a percentage (%0)
     fun printTip() {
         // build a string of the tip to print to the application
         val tip = StringBuilder()
@@ -66,6 +74,7 @@ class TipCalculatorActivity : AppCompatActivity() {
         tipTextView2.text = tip
     }
 
+    // helper method prints the tip as a dollar amount ($0.00)
     fun printTipCost() {
         // check if the edittext field is empty
         checkEditText()
@@ -85,6 +94,7 @@ class TipCalculatorActivity : AppCompatActivity() {
         tipCostTextView2.text = tip
     }
 
+    // helper method calculates the tip and adds it to the current price, then displays it to the UI
     fun calculateTip() {
         // check if the edittext field is empty
         checkEditText()
@@ -107,9 +117,37 @@ class TipCalculatorActivity : AppCompatActivity() {
         totalTextView2.text = totalValue
     }
 
+    // helper method checks if the edittext field is empty; prevents null pointer exception
     private fun checkEditText() {
+        // check if edittext field is null
         if (priceEditText.text.toString() == "") {
+            // it is so set it to value 0
             priceEditText.setText("0")
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.calculators, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item?.itemId) {
+            // on item "Tip Calculator" select, go to TipCalculatorActivity
+            R.id.tipCalculator -> {
+                val i = Intent(this, TipCalculatorActivity::class.java)
+                startActivity(i)
+                true
+            }
+            // on item "Tax Calculator" select, go to MainActivity (or recreate MainActivity)
+            R.id.taxCalculator -> {
+                val i = Intent(this, MainActivity::class.java)
+                startActivity(i)
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
         }
     }
 }
