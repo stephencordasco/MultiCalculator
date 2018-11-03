@@ -68,8 +68,8 @@ class TipCalculatorActivity : AppCompatActivity() {
     fun printTip() {
         // build a string of the tip to print to the application
         val tip = StringBuilder()
-        tip.append("%")
         tip.append(progressValue.toString())
+        tip.append("%")
         // set the text of the textview
         tipTextView2.text = tip
     }
@@ -128,6 +128,8 @@ class TipCalculatorActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.calculators, menu)
+        val item: MenuItem = menu!!.findItem(R.id.tipCalculator)
+        item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS)
         return super.onCreateOptionsMenu(menu)
     }
 

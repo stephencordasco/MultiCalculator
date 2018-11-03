@@ -103,6 +103,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.calculators, menu)
+        val item: MenuItem = menu!!.findItem(R.id.taxCalculator)
+        item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS)
         return super.onCreateOptionsMenu(menu)
     }
 
