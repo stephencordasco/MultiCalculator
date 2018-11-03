@@ -8,7 +8,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/calculator2"
+        android:id="@+id/bmiCalculator"
         android:title="@string/calculator2"
         app:showAsAction="never" />
 

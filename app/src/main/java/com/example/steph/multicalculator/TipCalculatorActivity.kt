@@ -147,6 +147,12 @@ class TipCalculatorActivity : AppCompatActivity() {
                 startActivity(i)
                 true
             }
+            // on item "BMI Calculator" select, got to BmiCalculatorActivity
+            R.id.bmiCalculator -> {
+                val i = Intent(this, BmiCalculatorActivity::class.java)
+                startActivity(i)
+                true
+            }
             else -> {
                 super.onOptionsItemSelected(item)
             }

@@ -13,4 +13,10 @@
     <string name="calculator2">BMI Calculator</string>
     <string name="calculator3">Length Calculator</string>
     <string name="calculator4">Tax Calculator</string>
+    <string name="height_in_feet">Height(Feet):</string>
+    <string name="height_in_inches">Height(Inches):</string>
+    <string name="weight">Weight(Pounds)</string>
+    <string name="feet">Feet</string>
+    <string name="inches">Inches</string>
+    <string name="calculate_bmi">Calculate BMI</string>
 </resources>
