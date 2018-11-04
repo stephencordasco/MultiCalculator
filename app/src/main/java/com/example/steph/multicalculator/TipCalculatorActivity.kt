@@ -38,6 +38,8 @@ class TipCalculatorActivity : AppCompatActivity() {
                 total.append(priceEditText.text.toString())
                 // set the totalTextView2 text to total
                 totalTextView2.text = total
+                // update the tip cost
+                printTipCost()
             }
         })
 
