@@ -10,7 +10,13 @@
     <string name="before_tax">Cost:</string>
     <string name="costWithTaxButton">CALCULATE</string>
     <string name="taxView">Tax:</string>
-    <string name="calculator2">Calculator 2</string>
-    <string name="calculator3">Calculator 3</string>
+    <string name="calculator2">BMI Calculator</string>
+    <string name="calculator3">Length Calculator</string>
     <string name="calculator4">Tax Calculator</string>
+    <string name="height_in_feet">Height(Feet):</string>
+    <string name="height_in_inches">Height(Inches):</string>
+    <string name="weight">Weight(Pounds)</string>
+    <string name="feet">Feet</string>
+    <string name="inches">Inches</string>
+    <string name="calculate_bmi">Calculate BMI</string>
 </resources>

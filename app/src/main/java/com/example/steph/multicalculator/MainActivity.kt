@@ -103,6 +103,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.calculators, menu)
+        val item: MenuItem = menu!!.findItem(R.id.taxCalculator)
+        item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -117,6 +119,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             // on item "Tax Calculator" select, go to MainActivity (or recreate MainActivity)
             R.id.taxCalculator -> {
                 val i = Intent(this, MainActivity::class.java)
+                startActivity(i)
+                true
+            }
+            // on item "BMI Calculator" select, got to BmiCalculatorActivity
+            R.id.bmiCalculator -> {
+                val i = Intent(this, BmiCalculatorActivity::class.java)
                 startActivity(i)
                 true
             }

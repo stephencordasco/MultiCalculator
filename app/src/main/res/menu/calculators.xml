@@ -5,21 +5,21 @@
     <item
         android:id="@+id/tipCalculator"
         android:title="@string/tip_calculator"
-        app:showAsAction="always|withText" />
+        app:showAsAction="never" />
 
     <item
-        android:id="@+id/calculator2"
+        android:id="@+id/bmiCalculator"
         android:title="@string/calculator2"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/calculator3"
         android:title="@string/calculator3"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/taxCalculator"
         android:title="@string/calculator4"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="never" />
 
 </menu>
