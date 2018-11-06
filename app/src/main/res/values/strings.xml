@@ -27,5 +27,6 @@
     <string name="meters">Meters</string>
     <string name="zero">0</string>
     <string name="to">To</string>
+    <string name="centimeters">Centimeters</string>
 
 </resources>
