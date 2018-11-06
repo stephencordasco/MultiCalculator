@@ -13,7 +13,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/calculator3"
+        android:id="@+id/lengthCalculator"
         android:title="@string/calculator3"
         app:showAsAction="never" />
 

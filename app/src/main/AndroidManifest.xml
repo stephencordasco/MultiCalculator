@@ -25,7 +25,11 @@
         <activity
                 android:name=".BmiCalculatorActivity"
                 android:screenOrientation="portrait">
-
+        </activity>
+        <activity
+                android:name=".LengthCalculatorActivity"
+                android:label="@string/title_activity_length_calculator"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

@@ -79,6 +79,12 @@ class BmiCalculatorActivity : AppCompatActivity() {
                 startActivity(i)
                 true
             }
+            // on item "Length Calculator" select, go to LengthCalculatorActivity
+            R.id.lengthCalculator -> {
+                val i = Intent(this, LengthCalculatorActivity::class.java)
+                startActivity(i)
+                true
+            }
             else -> {
                 super.onOptionsItemSelected(item)
             }
