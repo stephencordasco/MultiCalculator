@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SeekBar
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_tip_calculator.*
 import java.lang.StringBuilder
 import java.text.DecimalFormat
@@ -139,8 +140,7 @@ class TipCalculatorActivity : AppCompatActivity() {
         return when (item?.itemId) {
             // on item "Tip Calculator" select, go to TipCalculatorActivity
             R.id.tipCalculator -> {
-                val i = Intent(this, TipCalculatorActivity::class.java)
-                startActivity(i)
+                Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true
             }
             // on item "Tax Calculator" select, go to MainActivity (or recreate MainActivity)

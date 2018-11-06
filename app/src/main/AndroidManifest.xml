@@ -29,7 +29,8 @@
         <activity
                 android:name=".LengthCalculatorActivity"
                 android:label="@string/title_activity_length_calculator"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:screenOrientation="portrait">
         </activity>
     </application>
 

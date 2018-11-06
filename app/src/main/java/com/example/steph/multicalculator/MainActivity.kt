@@ -5,17 +5,17 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.StringBuilder
 import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-
+    // member variables
     private var beforeTax = 0.0
     private var tax = 0.0089
     private var taxCalculation = 0.0
@@ -32,14 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         beforeTaxText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                Log.i("MyActivity", "inside beforeText")
-                //beforeTextChanged = beforeTaxText.getText().toString()
-                //calculateButton.isClickable=false
-                //if(count== 0){
-                //    calculateButton.isClickable=false
-                //} else {
-                //    calculateButton.isClickable=true
-                //
+
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -55,8 +48,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 result.text = totalValue
             }
         })
-
-
     }
 
     override fun onClick(v: View) {
@@ -66,11 +57,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         // used to format the decimal
         val precision = DecimalFormat("0.00")
         beforeTax = java.lang.Double.parseDouble(beforeTaxText.text.toString())
-        //print("beforeafdsf"+beforeTax)
-        //if(beforeTaxText.text.toString() == "NULL"){
-        //    Log.i("MyActivity", "BeforeText less than 0")
-        //    calculateButton.isClickable=false
-        //}
 
         // calculate the tax
         taxCalculation = beforeTax * tax
@@ -118,8 +104,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             // on item "Tax Calculator" select, go to MainActivity (or recreate MainActivity)
             R.id.taxCalculator -> {
-                val i = Intent(this, MainActivity::class.java)
-                startActivity(i)
+                Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true
             }
             // on item "BMI Calculator" select, got to BmiCalculatorActivity
@@ -137,6 +122,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             else -> {
                 super.onOptionsItemSelected(item)
             }
+        }
+    }
+
+    // member variable to count number of back presses
+    private var backPress: Int = 0
+    override fun onBackPressed() {
+        // notify the user they can exit the application by pressing the back button again
+        Toast.makeText(applicationContext, "Press back again to exit application", Toast.LENGTH_LONG).show()
+        // check if the user presses back again
+        backPress++
+        // if two back presses, exit the application
+        if (backPress > 1) {
+            super.onBackPressed()
         }
     }
 }

@@ -75,8 +75,7 @@ class BmiCalculatorActivity : AppCompatActivity() {
             }
             // on item "BMI Calculator" select, got to BmiCalculatorActivity
             R.id.bmiCalculator -> {
-                val i = Intent(this, BmiCalculatorActivity::class.java)
-                startActivity(i)
+                Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true
             }
             // on item "Length Calculator" select, go to LengthCalculatorActivity

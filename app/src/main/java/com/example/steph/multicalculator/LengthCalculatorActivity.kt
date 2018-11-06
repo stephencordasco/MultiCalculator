@@ -13,6 +13,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_length_calculator.*
 import kotlinx.android.synthetic.main.fragment_feet_to_meters.view.*
@@ -82,8 +83,7 @@ class LengthCalculatorActivity : AppCompatActivity() {
             }
             // on item "Length Calculator" select, go to LengthCalculatorActivity
             R.id.lengthCalculator -> {
-                val i = Intent(this, LengthCalculatorActivity::class.java)
-                startActivity(i)
+                Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true
             }
             else -> {
