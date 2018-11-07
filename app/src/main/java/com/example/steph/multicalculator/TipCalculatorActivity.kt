@@ -55,6 +55,9 @@ class TipCalculatorActivity : AppCompatActivity() {
                 printTipCost()
                 // calculate the tip after the seek bar stops tracking
                 calculateTip()
+
+                // Toast to inform the user that they are now tracking with the seek bar
+                Toast.makeText(applicationContext, "Tracking", Toast.LENGTH_SHORT).show()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -62,7 +65,10 @@ class TipCalculatorActivity : AppCompatActivity() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
+                // Toast to inform the user that they are seek bar has stopped tracking
+                Toast.makeText(applicationContext, "Tracking Stopped", Toast.LENGTH_SHORT).show()
+                // calculate the tip after the seek bar stops tracking
+                calculateTip()
             }
         })
     }
