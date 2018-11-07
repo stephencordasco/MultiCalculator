@@ -81,7 +81,7 @@ class LengthCalculatorActivity : AppCompatActivity() {
                 startActivity(i)
                 true
             }
-            // on item "Length Calculator" select, go to LengthCalculatorActivity
+            // inform the user that they are already using this calculator
             R.id.lengthCalculator -> {
                 Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true

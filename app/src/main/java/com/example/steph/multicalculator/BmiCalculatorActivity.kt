@@ -73,7 +73,7 @@ class BmiCalculatorActivity : AppCompatActivity() {
                 startActivity(i)
                 true
             }
-            // on item "BMI Calculator" select, got to BmiCalculatorActivity
+            // inform the user that they are already using this calculator
             R.id.bmiCalculator -> {
                 Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true

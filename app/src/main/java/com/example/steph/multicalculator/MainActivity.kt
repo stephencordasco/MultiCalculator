@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(i)
                 true
             }
-            // on item "Tax Calculator" select, go to MainActivity (or recreate MainActivity)
+            // inform the user that they are already using this calculator
             R.id.taxCalculator -> {
                 Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true

@@ -138,7 +138,7 @@ class TipCalculatorActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
-            // on item "Tip Calculator" select, go to TipCalculatorActivity
+            // inform the user that they are already using this calculator
             R.id.tipCalculator -> {
                 Toast.makeText(applicationContext, "You're already using this calculator!", Toast.LENGTH_LONG).show()
                 true
