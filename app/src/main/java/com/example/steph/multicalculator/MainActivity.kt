@@ -99,6 +99,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             // on item "Tip Calculator" select, go to TipCalculatorActivity
             R.id.tipCalculator -> {
                 val i = Intent(this, TipCalculatorActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(i)
                 true
             }
@@ -110,12 +112,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             // on item "BMI Calculator" select, got to BmiCalculatorActivity
             R.id.bmiCalculator -> {
                 val i = Intent(this, BmiCalculatorActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(i)
                 true
             }
             // on item "Length Calculator" select, go to LengthCalculatorActivity
             R.id.lengthCalculator -> {
                 val i = Intent(this, LengthCalculatorActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(i)
                 true
             }
@@ -134,7 +140,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         backPress++
         // if two back presses, exit the application
         if (backPress > 1) {
-            super.onBackPressed()
+            finishAffinity()
         }
     }
 }

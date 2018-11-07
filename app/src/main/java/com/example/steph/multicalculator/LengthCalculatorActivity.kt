@@ -20,14 +20,6 @@ import kotlinx.android.synthetic.main.fragment_feet_to_meters.view.*
 
 class LengthCalculatorActivity : AppCompatActivity() {
 
-    /**
-     * The [android.support.v4.view.PagerAdapter] that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * [android.support.v4.app.FragmentStatePagerAdapter].
-     */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +45,7 @@ class LengthCalculatorActivity : AppCompatActivity() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.calculators, menu)
         val item = menu!!.findItem(R.id.lengthCalculator)
@@ -66,6 +58,8 @@ class LengthCalculatorActivity : AppCompatActivity() {
             // on item "Tip Calculator" select, go to TipCalculatorActivity
             R.id.tipCalculator -> {
                 val i = Intent(this, TipCalculatorActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(i)
                 true
             }
@@ -80,6 +74,8 @@ class LengthCalculatorActivity : AppCompatActivity() {
             // on item "BMI Calculator" select, got to BmiCalculatorActivity
             R.id.bmiCalculator -> {
                 val i = Intent(this, BmiCalculatorActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(i)
                 true
             }
@@ -94,10 +90,6 @@ class LengthCalculatorActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * A [FragmentPagerAdapter] that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
@@ -105,11 +97,9 @@ class LengthCalculatorActivity : AppCompatActivity() {
                 return FeetToMetersFragment.newInstance()
             }
             else if (position == 1){
-                // TODO
                 return InchesToFeetFragment.newInstance()
             }
             else{
-                // TODO
                 return CentimetersToMetersFragment.newInstance()
             }
 
@@ -121,6 +111,18 @@ class LengthCalculatorActivity : AppCompatActivity() {
         override fun getCount(): Int {
             // Show 3 total pages.
             return 3
+        }
+    }
+    // member variable to count number of back presses
+    private var backPress: Int = 0
+    override fun onBackPressed() {
+        // notify the user they can exit the application by pressing the back button again
+        Toast.makeText(applicationContext, "Press back again to exit application", Toast.LENGTH_LONG).show()
+        // check if the user presses back again
+        backPress++
+        // if two back presses, exit the application
+        if (backPress > 1) {
+            finishAffinity()
         }
     }
 }

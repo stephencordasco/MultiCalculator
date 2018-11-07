@@ -64,6 +64,8 @@ class BmiCalculatorActivity : AppCompatActivity() {
             // on item "Tip Calculator" select, go to TipCalculatorActivity
             R.id.tipCalculator -> {
                 val i = Intent(this, TipCalculatorActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(i)
                 true
             }
@@ -83,6 +85,8 @@ class BmiCalculatorActivity : AppCompatActivity() {
             // on item "Length Calculator" select, go to LengthCalculatorActivity
             R.id.lengthCalculator -> {
                 val i = Intent(this, LengthCalculatorActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(i)
                 true
             }
@@ -112,5 +116,18 @@ class BmiCalculatorActivity : AppCompatActivity() {
         }
 
         return true
+    }
+
+    // member variable to count number of back presses
+    private var backPress: Int = 0
+    override fun onBackPressed() {
+        // notify the user they can exit the application by pressing the back button again
+        Toast.makeText(applicationContext, "Press back again to exit application", Toast.LENGTH_LONG).show()
+        // check if the user presses back again
+        backPress++
+        // if two back presses, exit the application
+        if (backPress > 1) {
+            finishAffinity()
+        }
     }
 }
