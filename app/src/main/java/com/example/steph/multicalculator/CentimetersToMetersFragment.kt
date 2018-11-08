@@ -68,8 +68,6 @@ class CentimetersToMetersFragment : Fragment() {
             override fun afterTextChanged(s: Editable){}
         })
 
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_centimeters_to_meters, container, false)
         return rootView
     }
 

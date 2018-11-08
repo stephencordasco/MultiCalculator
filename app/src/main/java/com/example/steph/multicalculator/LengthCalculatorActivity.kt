@@ -37,11 +37,6 @@ class LengthCalculatorActivity : AppCompatActivity() {
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
-        //fab.setOnClickListener { view ->
-          //  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            //    .setAction("Action", null).show()
-        //}
-
     }
 
 
@@ -102,10 +97,6 @@ class LengthCalculatorActivity : AppCompatActivity() {
             else{
                 return CentimetersToMetersFragment.newInstance()
             }
-
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            //return FeetToMetersFragment.newInstance(position + 1)
         }
 
         override fun getCount(): Int {
